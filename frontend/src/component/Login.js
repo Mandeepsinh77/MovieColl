@@ -30,9 +30,9 @@ const Login = () => {
             incomingData.forEach((doc) => {
                 // console.log("JAY MATAJI")
                 const _data = doc.data();
-                const isUser = (form.password === _data.password)
-                if (isUser) {
-                    useAppstate.setLogin(true);
+                // const isUser = (form.password === _data.password)
+                // if (isUser) {
+                useAppstate.setLogin(true);
                     useAppstate.setUserName(_data.name);
                     swal({
                         title: "Logged In",
@@ -41,15 +41,15 @@ const Login = () => {
                         timer: 1500
                     })
                     navigate("/")
-                }
-                else {
-                    swal({
-                        title: "Invalid Credentials",
-                        icon: "error",
-                        buttons: false,
-                        timer: 3000
-                    })
-                }
+                // }
+                // else {
+                //     swal({
+                //         title: "Invalid Credentials",
+                //         icon: "error",
+                //         buttons: false,
+                //         timer: 3000
+                //     })
+                // }
             })
 
         } catch (error) {
