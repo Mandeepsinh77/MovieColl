@@ -26,7 +26,7 @@ const Signup = () => {
 
     const [loading, setLoading] = useState(false);
     const [otpSent, setOtpSent] = useState(false);
-    const [OTP, setOTP] = useState();
+    const [OTP, setOTP] = useState("");
 
 
     //IT IS VARIFIY IS IT HUMAN OR BOT USING RECAPTHAVARIFICATION WHEN WE GENERATE OTP AND VARIFY IT
