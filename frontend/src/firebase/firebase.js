@@ -2,12 +2,22 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection } from 'firebase/firestore'
 //connection with fire base this below configuration is given by firebase database
 const firebaseConfig = {
-    apiKey: "AIzaSyAAknpzFYp8Sofo-PO4i9W0DyKWXwFW-6s",
-    authDomain: "moviecoll-3338d.firebaseapp.com",
-    projectId: "moviecoll-3338d",
-    storageBucket: "moviecoll-3338d.appspot.com",
-    messagingSenderId: "537889031817",
-    appId: "1:537889031817:web:05d74452e427baacdf2858"
+
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STOBUCK,
+    messagingSenderId: process.env.REACT_APP_MSGID,
+    appId: process.env.REACT_APP_APPID,
+
+
+
+    // apiKey: "AIzaSyAAknpzFYp8Sofo-PO4i9W0DyKWXwFW-6s",
+    // authDomain: "moviecoll-3338d.firebaseapp.com",
+    // projectId: "moviecoll-3338d",
+    // storageBucket: "moviecoll-3338d.appspot.com",
+    // messagingSenderId: "537889031817",
+    // appId: "1:537889031817:web:05d74452e427baacdf2858"
 };
 
 // Initialize Firebase
