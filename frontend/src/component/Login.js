@@ -6,7 +6,7 @@ import swal from 'sweetalert'
 import { query, where, getDocs } from 'firebase/firestore'
 import { usersRef } from "../firebase/firebase.js"
 import { Appstate } from "../App";
-import bcrypt from "bcryptjs"
+// import bcrypt from "bcryptjs"
 
 
 const Login = () => {
@@ -22,7 +22,6 @@ const Login = () => {
 
     const login = async () => {
         setLoading(true);
-
         try {
             let quer = query(usersRef, where('mobile', '==', form.mobile));
             const incomingData = await getDocs(quer);
@@ -30,26 +29,28 @@ const Login = () => {
             incomingData.forEach((doc) => {
                 // console.log("JAY MATAJI")
                 const _data = doc.data();
-                // const isUser = (form.password === _data.password)
-                // if (isUser) {
-                useAppstate.setLogin(true);
+                const isUserexist = (form.password == _data.password)
+                console.log(isUserexist)
+                if (isUserexist) {
+                 
+                    useAppstate.setLogin(true);
                     useAppstate.setUserName(_data.name);
+                
                     swal({
                         title: "Logged In",
                         icon: "success",
                         buttons: false,
-                        timer: 1500
+                        timer: 3000
                     })
-                    navigate("/")
-                // }
-                // else {
-                //     swal({
-                //         title: "Invalid Credentials",
-                //         icon: "error",
-                //         buttons: false,
-                //         timer: 3000
-                //     })
-                // }
+                    return navigate("/")
+                } else {
+                    swal({
+                        title: "Invalid Credentials",
+                        icon: "error",
+                        buttons: false,
+                        timer: 3000
+                    })
+                }
             })
 
         } catch (error) {
