@@ -69,7 +69,7 @@ function AddMovie() {
 
       } else {
         window.alert("Do Login First");
-        9537519367('/login')
+        navigate('/login')
       }
     } catch (err) {
       swal({
